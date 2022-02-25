@@ -15,5 +15,4 @@ public class UEmployee
 		return salary;
 	}
 	
-	//iii
 }
