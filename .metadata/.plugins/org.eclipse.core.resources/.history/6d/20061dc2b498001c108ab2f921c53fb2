@@ -1,0 +1,22 @@
+
+public class PersonalAcct extends Account
+{
+	private double minBal = 100;
+	private Customer cust;
+	
+
+
+	public PersonalAcct(double bal, String fName, String lName, String str, String city, String st, String zip) 
+	{
+		super(null, null, null, null, null, null, null);
+		bal = super.getBalance();
+		
+		cust = new Customer(fName, lName, str, city, st, zip);
+		
+		if (bal < minBal)
+		{
+			super.withdrawal(2);
+		}
+	}
+
+}

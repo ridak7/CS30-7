@@ -1,6 +1,6 @@
 
 public class Customer {
-	private String firstName, lastName, street, city, state, zip;
+	private String firstName, lastName, street, city, province, post;
 		
 	
 	/**
@@ -9,13 +9,13 @@ public class Customer {
 	 * post: A Customer object has been created. 
 	 * Customer data has been initialized with parameters.
 	 */
-	public Customer(String fName, String lName, String str, String c, String s, String z) {
+	public Customer(String fName, String lName, String str, String city, String prov, String pst) {
 		firstName = fName;
 		lastName = lName;
 		street = str;
-		city = c;
-		state = s;
-		zip = z;
+		city = city;
+		province = prov;
+		post = pst;
 	}
 	
 
@@ -30,7 +30,7 @@ public class Customer {
 	
 		custString = firstName + " " + lastName + "\n";
 		custString += street + "\n";
-		custString += city + ", " + state + "  " + zip + "\n";
+		custString += city + ", " + province + "  " + post + "\n";
 	 	return(custString);
 	}
 }
