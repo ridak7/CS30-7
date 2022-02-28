@@ -1,18 +1,16 @@
 
 public class PersonalAcct extends Account
 {
-	double minBal = 100;
-	double penalty = 2;
+	private double minBal = 100;
 
 	public PersonalAcct(double bal, String fName, String lName, String str, String city, String st, String zip) 
 	{
-		bal = super.getBalance();
+		super(bal, fName, lName, str, city, st, zip);
 		
 		if (bal < minBal)
 		{
-			bal = bal - penalty;
+			super.withdrawal(2);
 		}
-	
 	}
 
 }

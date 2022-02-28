@@ -1,17 +1,15 @@
 
 public class BusinessAcct extends Account
 {
-	double minBal = 500;
-	double penalty = 10;
+	private double minBal = 500;
 
-	public BusinessAcct(double bal) 
+	public BusinessAcct(double bal, String fName, String lName, String str, String city, String st, String zip) 
 	{
-		super(100, null, null, null, null, null, null);
-		bal = super.getBalance();
-			
+		super(bal, fName, lName, str, city, st, zip);
+		
 		if (bal < minBal)
 		{
-			bal = bal - penalty;
+			super.withdrawal(10);
 		}
 	}
 

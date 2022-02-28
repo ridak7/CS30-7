@@ -1,0 +1,9 @@
+
+public class PersonalAcct extends Account
+{
+
+	public PersonalAcct() {
+	
+	}
+
+}
