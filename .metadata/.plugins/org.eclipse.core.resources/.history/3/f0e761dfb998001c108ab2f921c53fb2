@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Bank {
+
+
+	public static void getDetails()
+	{
+		String fName, lName, str, city, prov, pst;
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Enter your first name: ");
+		fName = input.next();
+		input.close();
+		
+		System.out.print("\n" + "Enter your last name: ");
+		lName = input.next();
+		
+		System.out.print("\n" + "Enter your street: ");
+		str = input.next();
+		
+		System.out.print("\n" + "Enter the city: ");
+		city = input.next();
+		
+		System.out.print("\n" + "Enter the province: ");
+		prov = input.next();
+		
+		System.out.print("\n" + "Enter the postal code: ");
+		pst = input.next();
+		
+		System.out.print("\n" + fName + " " + lName + " " + str + " " + city + " " + prov + " " + pst);
+		//Customer cust = new Customer()
+	}
+	
+	public static void main(String[] args) 
+	{
+		getDetails();
+
+	}
+
+}
