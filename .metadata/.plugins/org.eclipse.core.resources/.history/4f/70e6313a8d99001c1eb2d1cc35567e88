@@ -54,38 +54,38 @@ public class Bank {
 	{
 		System.out.print("\n" + "Enter the balance of the account: ");
 		bal = i.nextDouble();
-		Account acc = new Account(bal, fName, lName, str, city, prov, pst);
-		
-		
-		accountType();
+		i.close();
 	}
 	
-	public static String accountType()
+	public static void accountType()
 	{
 		
-		System.out.print("\n" + "Enter account type ('personal' or 'business'): ");
+		
+		Scanner i = new Scanner(System.in);
+		System.out.print("Enter account type (enter 'personal' or 'business'): ");
 		accType = i.next();
-		System.out.println(accType);
+		//i.close();
 		
-		
-		return accType;
-		
-	}
-	
-	
-	public static void main(String[] args) 
-	{
-		getDetails();
-		
-		if (accountType() == "personal")
+		if (accType == "personal")
 		{
 			PersonalAcct pAcc = new PersonalAcct(bal, fName, lName, str, city, prov, pst);
-			System.out.println(pAcc.toString());
+			pAcc.toString();
+			
 		}
 		else if (accType == "business")
 		{
 			
 		}
+	}
+	
+	
+	
+	
+	
+	public static void main(String[] args) 
+	{
+		getDetails();
+
 	}
 
 }

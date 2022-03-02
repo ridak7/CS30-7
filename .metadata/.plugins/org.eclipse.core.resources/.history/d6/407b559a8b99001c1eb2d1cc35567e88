@@ -1,0 +1,92 @@
+package bank;
+import java.util.Scanner;
+
+public class Bank {
+
+
+	
+	private static String accType, fName, lName, str, city, prov, pst;
+	private static double bal;
+	
+	public static void getDetails()
+	{
+		
+		
+		Scanner i = new Scanner(System.in);
+		System.out.print("Enter your first name: ");
+		fName = i.next();
+		//i.close();
+		
+		Scanner i2 = new Scanner(System.in);
+		System.out.print("\n" + "Enter your last name: ");
+		lName = i2.next();
+		//i2.close();
+		
+		Scanner i3 = new Scanner(System.in);
+		System.out.print("\n" + "Enter your street: ");
+		str = i3.next();
+		//i3.close();
+		
+		Scanner i4 = new Scanner(System.in);
+		System.out.print("\n" + "Enter the city: ");
+		city = i4.next();
+		//i4.close();
+		
+		Scanner i5 = new Scanner(System.in);
+		System.out.print("\n" + "Enter the province: ");
+		prov = i5.next();
+		//i5.close();
+		
+		Scanner i6 = new Scanner(System.in);
+		System.out.print("\n" + "Enter the postal code: ");
+		pst = i6.next();
+		//i6.close();
+		
+		//System.out.print("\n" + fName + " " + lName + " " + str + " " + city + " " + prov + " " + pst);
+		
+		Customer cust = new Customer(fName, lName, str, city, prov, pst);
+		System.out.println(cust.toString());
+		
+		getBalance();
+	}
+	
+	public static void getBalance()
+	{
+		Scanner i = new Scanner(System.in);
+		System.out.print("Enter the balance of the account: ");
+		bal = i.nextDouble();
+		i.close();
+	}
+	
+	public static void accountType()
+	{
+		
+		
+		Scanner i = new Scanner(System.in);
+		System.out.print("Enter account type (enter 'personal' or 'business'): ");
+		accType = i.next();
+		i.close();
+		
+		if (accType == "personal")
+		{
+			PersonalAcct pAcc = new PersonalAcct(bal, fName, lName, str, city, prov, pst);
+			pAcc.toString();
+			
+		}
+		else if (accType == "business")
+		{
+			
+		}
+	}
+	
+	
+	
+	
+	
+	public static void main(String[] args) 
+	{
+		getDetails();
+
+	}
+
+}

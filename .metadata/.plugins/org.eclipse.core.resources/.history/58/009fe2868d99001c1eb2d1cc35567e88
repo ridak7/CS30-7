@@ -44,7 +44,7 @@ public class Bank {
 		
 		//System.out.print("\n" + fName + " " + lName + " " + str + " " + city + " " + prov + " " + pst);
 		
-		Customer cust = new Customer(fName, lName, str, city, prov, pst);
+		//Customer cust = new Customer(fName, lName, str, city, prov, pst);
 		//System.out.println(cust.toString());
 		
 		getBalance();
@@ -54,38 +54,33 @@ public class Bank {
 	{
 		System.out.print("\n" + "Enter the balance of the account: ");
 		bal = i.nextDouble();
-		Account acc = new Account(bal, fName, lName, str, city, prov, pst);
-		
 		
 		accountType();
 	}
 	
-	public static String accountType()
+	public static void accountType()
 	{
 		
-		System.out.print("\n" + "Enter account type ('personal' or 'business'): ");
+		System.out.print("Enter account type ('personal' or 'business'): ");
 		accType = i.next();
-		System.out.println(accType);
+		i.close();
 		
-		
-		return accType;
-		
+		if (accType == "personal")
+		{
+			PersonalAcct pAcc = new PersonalAcct(bal, fName, lName, str, city, prov, pst);
+			pAcc.toString();
+		}
+		else if (accType == "business")
+		{
+			
+		}
 	}
 	
 	
 	public static void main(String[] args) 
 	{
 		getDetails();
-		
-		if (accountType() == "personal")
-		{
-			PersonalAcct pAcc = new PersonalAcct(bal, fName, lName, str, city, prov, pst);
-			System.out.println(pAcc.toString());
-		}
-		else if (accType == "business")
-		{
-			
-		}
+
 	}
 
 }
