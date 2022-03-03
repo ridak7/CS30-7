@@ -23,8 +23,10 @@ public class Bank {
 		lName = i.nextLine();
 		lName = lName.substring(0, 1).toUpperCase() + lName.substring(1);
 		
+		
 		System.out.print("\n" + "Enter your street: ");
 		str = i.nextLine();
+		
 	
 		System.out.print("\n" + "Enter the city: ");
 		city = i.nextLine();
@@ -38,6 +40,7 @@ public class Bank {
 		pst = i.nextLine();
 		pst = pst.substring(0).toUpperCase();
 		
+		//getOgBalance();
 		accountType();
 	}
 	
@@ -47,6 +50,7 @@ public class Bank {
 	{
 		System.out.print("\n" + "Enter the balance of the account: ");
 		bal = i.nextDouble();
+		//accountType();
 		checkAcc();
 	}
 	
@@ -56,6 +60,7 @@ public class Bank {
 	{	
 		System.out.print("\n" + "Enter account type ('personal' or 'business'): ");
 		accType = i.next();
+		//checkAcc();
 		getOgBalance();
 	}
 	
@@ -115,7 +120,7 @@ public class Bank {
 						System.out.println("Withdrawing $" + withdrawAmount + "0 will result in a charge of $2. Enter '1' to continue or '2' to stop.");
 						int confirm = i.nextInt();
 						
-						if (withdrawAmount + 2 > bal)
+						if (withdrawAmount > bal)
 						{
 							System.out.println("Not Enough Money in Account.");
 							try {
@@ -159,7 +164,7 @@ public class Bank {
 						System.out.println("Withdrawing $" + withdrawAmount + "0 will result in a charge of $10. Enter '1' to continue or '2' to stop.");
 						int confirm = i.nextInt();
 						
-						if(withdrawAmount + 2 > bal)
+						if(withdrawAmount > bal)
 						{
 							System.out.println("Not enough money in account.");
 							try {

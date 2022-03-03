@@ -23,8 +23,10 @@ public class Bank {
 		lName = i.nextLine();
 		lName = lName.substring(0, 1).toUpperCase() + lName.substring(1);
 		
+		
 		System.out.print("\n" + "Enter your street: ");
 		str = i.nextLine();
+		
 	
 		System.out.print("\n" + "Enter the city: ");
 		city = i.nextLine();
@@ -38,7 +40,7 @@ public class Bank {
 		pst = i.nextLine();
 		pst = pst.substring(0).toUpperCase();
 		
-		accountType();
+		getOgBalance();
 	}
 	
 	
@@ -47,7 +49,7 @@ public class Bank {
 	{
 		System.out.print("\n" + "Enter the balance of the account: ");
 		bal = i.nextDouble();
-		checkAcc();
+		accountType();
 	}
 	
 	
@@ -56,7 +58,7 @@ public class Bank {
 	{	
 		System.out.print("\n" + "Enter account type ('personal' or 'business'): ");
 		accType = i.next();
-		getOgBalance();
+		checkAcc();
 	}
 	
 	
@@ -112,39 +114,26 @@ public class Bank {
 				{
 					if (pAcc.checkBal() == true)
 					{
-						System.out.println("Withdrawing $" + withdrawAmount + "0 will result in a charge of $2. Enter '1' to continue or '2' to stop.");
+						System.out.println("Withdrawing $" + withdrawAmount + "will result in a charge of $2. Enter '1' to continue or '2' to stop.");
 						int confirm = i.nextInt();
 						
-						if (withdrawAmount + 2 > bal)
+						switch (confirm)
 						{
-							System.out.println("Not Enough Money in Account.");
-							try {
-								TimeUnit.SECONDS.sleep(2);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							checkAcc();
-						}
-						else 
-						{
-							switch (confirm)
-							{
-								case 1:
-									acc.withdrawal(withdrawAmount + 2);
-									System.out.println("$2 penalty charged.");
-									try {
-										TimeUnit.SECONDS.sleep(2);
-									} catch (InterruptedException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									break;
-									
-								case 2:
-									checkAcc();
-									break;
-							}
+							case 1:
+								acc.withdrawal(withdrawAmount);
+								pAcc.penalty();
+								System.out.println("$2 penalty charged.");
+								try {
+									TimeUnit.SECONDS.sleep(2);
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								break;
+								
+							case 2:
+								checkAcc();
+								break;
 						}
 					}
 					else	
@@ -152,44 +141,30 @@ public class Bank {
 						acc.withdrawal(withdrawAmount);
 					}
 				} 
-				else if (accType.equals("business"))
+				else
 				{
 					if (bAcc.checkBal() == true)
 					{
-						System.out.println("Withdrawing $" + withdrawAmount + "0 will result in a charge of $10. Enter '1' to continue or '2' to stop.");
+						System.out.println("Withdrawing $" + withdrawAmount + "will result in a charge of $10. Enter '1' to continue or '2' to stop.");
 						int confirm = i.nextInt();
 						
-						if(withdrawAmount + 2 > bal)
+						switch (confirm)
 						{
-							System.out.println("Not enough money in account.");
-							try {
-								TimeUnit.SECONDS.sleep(2);
-							} catch (InterruptedException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							
-							checkAcc();
-						}
-						else
-						{
-							switch (confirm)
-							{
-								case 1:
-									acc.withdrawal(withdrawAmount + 10);
-									System.out.println("$10 penalty charged.");
-									try {
-										TimeUnit.SECONDS.sleep(2);
-									} catch (InterruptedException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-									break;
-									
-								case 2:
-									checkAcc();
-									break;
-							}
+							case 1:
+								acc.withdrawal(withdrawAmount);
+								bAcc.penalty();
+								System.out.println("$10 penalty charged.");
+								try {
+									TimeUnit.SECONDS.sleep(2);
+								} catch (InterruptedException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+								break;
+								
+							case 2:
+								checkAcc();
+								break;
 						}
 					}
 					else	
