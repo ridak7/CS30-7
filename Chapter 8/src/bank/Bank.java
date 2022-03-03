@@ -1,61 +1,55 @@
 package bank;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 public class Bank {
 
 
 	
 	private static String accType, fName, lName, str, city, prov, pst;
-	private static double bal;
+	private static double withdrawAmount, depAmount, bal;
+	private static int choice;
 	static Scanner i = new Scanner(System.in);
 	
 	
-	public static void getDetails()
-	{
-		
+	public static void getDetails() 
+	{	
 		System.out.print("Enter your first name: ");
 		fName = i.nextLine();
 		
 		
-		//Scanner i2 = new Scanner(System.in);
 		System.out.print("\n" + "Enter your last name: ");
 		lName = i.nextLine();
 		
 		
-		//Scanner i3 = new Scanner(System.in);
 		System.out.print("\n" + "Enter your street: ");
 		str = i.nextLine();
 		
-		
-		//Scanner i4 = new Scanner(System.in);
+	
 		System.out.print("\n" + "Enter the city: ");
 		city = i.nextLine();
 		
 		
-		//Scanner i5 = new Scanner(System.in);
 		System.out.print("\n" + "Enter the province: ");
 		prov = i.nextLine();
 		
 		
-		//Scanner i6 = new Scanner(System.in);
 		System.out.print("\n" + "Enter the postal code: ");
 		pst = i.nextLine();
 		
-		
-		//System.out.println(cust.toString());
-		
-		getBalance();
+		getOgBalance();
 	}
 	
-	public static void getBalance()
+	
+	
+	public static void getOgBalance()
 	{
 		System.out.print("\n" + "Enter the balance of the account: ");
 		bal = i.nextDouble();
-		
-		//System.out.print("\n" + bal + fName + " " + lName + " " + str + " " + city + " " + prov + " " + pst);
-		
 		accountType();
 	}
+	
+	
 	
 	public static void accountType()
 	{	
@@ -64,26 +58,91 @@ public class Bank {
 		checkAcc();
 	}
 	
+	
+	
 	public static void checkAcc()
 	{
 		if (accType.equals("personal"))
 		{
 			PersonalAcct pAcc = new PersonalAcct(bal, fName, lName, str, city, prov, pst);
 			System.out.println(pAcc);
-			accType = null;
 		}
 		else if (accType.equals("business"))
 		{
 			BusinessAcct bAcc = new BusinessAcct(bal, fName, lName, str, city, prov, pst);
 			System.out.println(bAcc.toString());
-			accType = null;
 		}
 		else
 		{
 			System.out.println("No account type selected");
 			accountType();
 		}
+		
+		choice();
 	}
+	
+	
+	
+	public static void choice()
+	{
+		System.out.println("\n" + "Enter '1' to start a deposit, '2' to start a withdrawl, '3' to check account type or '4' to quit: ");
+		choice = i.nextInt();
+		Account acc = new Account(bal, fName, lName, str, city, prov, pst);
+		
+		switch (choice)
+		{
+			case 1:
+				
+				System.out.print("Enter amount to deposit: ");
+				depAmount = i.nextDouble(); 
+				acc.deposit(depAmount);
+				bal = acc.getBalance();
+				checkAcc();
+				break;
+				
+			case 2:
+			{
+				System.out.print("Enter amount to withdraw: ");
+				withdrawAmount = i.nextDouble();
+				acc.withdrawal(withdrawAmount);
+				bal = acc.getBalance();
+				checkAcc();
+				break;
+			}
+			
+			case 3:
+			{
+				System.out.print("Account Type: " + accType);
+				
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				checkAcc();
+				break;
+			}
+			
+			
+			case 4:
+			{
+				System.out.println("Thank you for your business.");
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.println("Goodbye.");
+				System.exit(0);
+			}
+					
+		}
+		
+	}
+	
 	
 	public static void main(String[] args) 
 	{

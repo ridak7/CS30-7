@@ -28,8 +28,8 @@ public class Customer {
 	 */
 	 public String toString() {
 		String custString;
-	
-		custString = "\n" + "Account name: " + firstName + " " + lastName + "\n";
+		custString = "\n________________________________________________________________________________";
+		custString += "\n" + "Account name: " + firstName + " " + lastName + "\n";
 		custString += "Street Address: " + street + ", " + cit + ", " + province + ", " + post + "\n";
 	 	return(custString);
 	}

@@ -63,7 +63,7 @@ public class Account {
 		NumberFormat money = NumberFormat.getCurrencyInstance();
 
 		accountString = cust.toString();
-		accountString += "Current balance is " + money.format(balance);
+		accountString += "\n" + "Current balance is " + money.format(balance);
 	 	return(accountString);
 	}
 }
