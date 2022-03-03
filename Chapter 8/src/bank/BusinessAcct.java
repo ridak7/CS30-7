@@ -8,18 +8,21 @@ public class BusinessAcct extends Account
 	public BusinessAcct(double bal, String fName, String lName, String str, String city, String prov, String pst) 
 	{
 		super(bal, fName, lName, str, city, prov, pst);
-		balance = bal;
 		
 	}
 	
-	public void checkBal()
-	{
-		if (balance < minBal)
+		public boolean checkBal()
 		{
-			super.withdrawal(10);
+			if (balance < minBal)
+			{
+				return true;
+			}
+			else 
+			{
+				return false;
+			}
 		}
-	}
-	
+		
 	public String toString()
 	{
 		String bAccString;

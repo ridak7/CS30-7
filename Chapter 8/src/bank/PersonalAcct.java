@@ -12,11 +12,15 @@ public class PersonalAcct extends Account
 		
 	}
 	
-	public void checkBal()
+	public boolean checkBal()
 	{
 		if (balance < minBal)
 		{
-			super.withdrawal(2);
+			return true;
+		}
+		else 
+		{
+			return false;
 		}
 	}
 	
