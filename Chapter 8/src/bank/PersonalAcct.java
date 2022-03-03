@@ -9,19 +9,23 @@ public class PersonalAcct extends Account
 	{
 		super(bal, fName, lName, str, city, prov, pst);
 		
+		
+	}
+	
+	public void checkBal()
+	{
 		if (balance < minBal)
 		{
 			super.withdrawal(2);
 		}
 	}
 	
-	
 	public String toString()
 	{
 		String pAccString;
 		
 		pAccString = super.toString();
-		pAccString += "Minimum account balance is $100. If balance falls below $100, $2 is charged to the account.";
+		pAccString += "\n" + "Minimum account balance is $100. If balance falls below $100, $2 is charged to the account.";
 		
 		return(pAccString);
 	}

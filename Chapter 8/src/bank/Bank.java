@@ -9,6 +9,7 @@ public class Bank {
 	private static double bal;
 	static Scanner i = new Scanner(System.in);
 	
+	
 	public static void getDetails()
 	{
 		
@@ -41,10 +42,6 @@ public class Bank {
 		pst = i.nextLine();
 		
 		
-		
-		//System.out.print("\n" + fName + " " + lName + " " + str + " " + city + " " + prov + " " + pst);
-		
-		Customer cust = new Customer(fName, lName, str, city, prov, pst);
 		//System.out.println(cust.toString());
 		
 		getBalance();
@@ -54,38 +51,44 @@ public class Bank {
 	{
 		System.out.print("\n" + "Enter the balance of the account: ");
 		bal = i.nextDouble();
-		Account acc = new Account(bal, fName, lName, str, city, prov, pst);
 		
+		//System.out.print("\n" + bal + fName + " " + lName + " " + str + " " + city + " " + prov + " " + pst);
 		
 		accountType();
 	}
 	
-	public static String accountType()
-	{
-		
+	public static void accountType()
+	{	
 		System.out.print("\n" + "Enter account type ('personal' or 'business'): ");
 		accType = i.next();
-		System.out.println(accType);
-		
-		
-		return accType;
-		
+		checkAcc();
 	}
 	
+	public static void checkAcc()
+	{
+		if (accType.equals("personal"))
+		{
+			PersonalAcct pAcc = new PersonalAcct(bal, fName, lName, str, city, prov, pst);
+			System.out.println(pAcc);
+			accType = null;
+		}
+		else if (accType.equals("business"))
+		{
+			BusinessAcct bAcc = new BusinessAcct(bal, fName, lName, str, city, prov, pst);
+			System.out.println(bAcc.toString());
+			accType = null;
+		}
+		else
+		{
+			System.out.println("No account type selected");
+			accountType();
+		}
+	}
 	
 	public static void main(String[] args) 
 	{
 		getDetails();
-		
-		if (accountType() == "personal")
-		{
-			PersonalAcct pAcc = new PersonalAcct(bal, fName, lName, str, city, prov, pst);
-			System.out.println(pAcc.toString());
-		}
-		else if (accType == "business")
-		{
-			
-		}
+		i.close();		
 	}
 
 }

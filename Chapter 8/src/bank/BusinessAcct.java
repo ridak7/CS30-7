@@ -19,5 +19,15 @@ public class BusinessAcct extends Account
 			super.withdrawal(10);
 		}
 	}
+	
+	public String toString()
+	{
+		String bAccString;
+		
+		bAccString = super.toString();
+		bAccString += "\n" + "Minimum account balance is $500. If balance falls below $500, $10 is charged to the account.";
+		
+		return(bAccString);
+	}
 
 }

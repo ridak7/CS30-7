@@ -1,7 +1,7 @@
 package bank;
 
 public class Customer {
-	private String firstName, lastName, street, cit, province, post;
+	public String firstName, lastName, street, cit, province, post;
 		
 	
 	/**
@@ -29,9 +29,8 @@ public class Customer {
 	 public String toString() {
 		String custString;
 	
-		custString = firstName + " " + lastName + "\n";
-		custString += street + "\n";
-		custString += cit + ", " + province + "  " + post + "\n";
+		custString = "\n" + "Account name: " + firstName + " " + lastName + "\n";
+		custString += "Street Address: " + street + ", " + cit + ", " + province + ", " + post + "\n";
 	 	return(custString);
 	}
 }
