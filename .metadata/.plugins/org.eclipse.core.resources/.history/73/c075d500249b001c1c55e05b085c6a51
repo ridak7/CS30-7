@@ -12,18 +12,21 @@ public class Bank {
 	static Scanner i = new Scanner(System.in);
 	
 	
-	public static void getDetails() throws InterruptedException 
+	public static void getDetails() 
 	{	
 		System.out.print("Enter your first name: ");
 		fName = i.nextLine();
 		fName = fName.substring(0, 1).toUpperCase() + fName.substring(1);
 		
+		
 		System.out.print("\n" + "Enter your last name: ");
 		lName = i.nextLine();
 		lName = lName.substring(0, 1).toUpperCase() + lName.substring(1);
 		
+		
 		System.out.print("\n" + "Enter your street: ");
 		str = i.nextLine();
+		
 	
 		System.out.print("\n" + "Enter the city: ");
 		city = i.nextLine();
@@ -37,57 +40,33 @@ public class Bank {
 		pst = i.nextLine();
 		pst = pst.substring(0).toUpperCase();
 		
+		//getOgBalance();
 		accountType();
 	}
 	
-	public static void accountType() throws InterruptedException
-	{	
-		System.out.print("\n" + "Enter account type ('personal' or 'business'): ");
-		accType = i.next();
-		
-		
-		getOgBalance();
-	}
 	
-	public static void getOgBalance() throws InterruptedException
+	
+	public static void getOgBalance()
 	{
 		System.out.print("\n" + "Enter the balance of the account: ");
 		bal = i.nextDouble();
-		
-		if(accType.equals("personal"))
-		{
-			if(bal < 100)
-			{
-				System.out.println("Personal accounts require at least $100 balance.");
-				TimeUnit.SECONDS.sleep(2);
-				
-				getOgBalance();
-			}
-			else 
-			{
-				checkAcc();
-			}
-		}
-		else if(accType.equals("business"))
-		{
-			if(bal < 500)
-			{
-				System.out.println("Business accounts require at least $500 balance.");
-				TimeUnit.SECONDS.sleep(2);
-				
-				getOgBalance();
-			}
-			else
-			{
-				checkAcc();
-			}
-		}
-		
+		//accountType();
+		checkAcc();
 	}
 	
 	
 	
-	public static void checkAcc() throws InterruptedException
+	public static void accountType()
+	{	
+		System.out.print("\n" + "Enter account type ('personal' or 'business'): ");
+		accType = i.next();
+		//checkAcc();
+		getOgBalance();
+	}
+	
+	
+	
+	public static void checkAcc()
 	{
 		if (accType.equals("personal"))
 		{
@@ -110,7 +89,7 @@ public class Bank {
 	
 	
 	
-	public static void choice() throws InterruptedException
+	public static void choice()
 	{
 		System.out.println("\n" + "Enter '1' to start a deposit, '2' to start a withdrawl, '3' to check account type or '4' to quit: ");
 		choice = i.nextInt();
@@ -144,8 +123,12 @@ public class Bank {
 						if (withdrawAmount + 2 > bal)
 						{
 							System.out.println("Not Enough Money in Account.");
-							TimeUnit.SECONDS.sleep(2);
-							
+							try {
+								TimeUnit.SECONDS.sleep(2);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							checkAcc();
 						}
 						else 
@@ -155,7 +138,12 @@ public class Bank {
 								case 1:
 									acc.withdrawal(withdrawAmount + 2);
 									System.out.println("$2 penalty charged.");
-									TimeUnit.SECONDS.sleep(2);
+									try {
+										TimeUnit.SECONDS.sleep(2);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 									break;
 									
 								case 2:
@@ -179,8 +167,12 @@ public class Bank {
 						if(withdrawAmount + 2 > bal)
 						{
 							System.out.println("Not enough money in account.");
-							TimeUnit.SECONDS.sleep(2);
-							
+							try {
+								TimeUnit.SECONDS.sleep(2);
+							} catch (InterruptedException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							
 							checkAcc();
 						}
@@ -191,7 +183,12 @@ public class Bank {
 								case 1:
 									acc.withdrawal(withdrawAmount + 10);
 									System.out.println("$10 penalty charged.");
-									TimeUnit.SECONDS.sleep(2);
+									try {
+										TimeUnit.SECONDS.sleep(2);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
 									break;
 									
 								case 2:
@@ -214,7 +211,14 @@ public class Bank {
 			case 3:
 			{
 				System.out.print("Account Type: " + accType);
-				TimeUnit.SECONDS.sleep(2);	
+				
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				checkAcc();
 				break;
 			}
@@ -223,7 +227,12 @@ public class Bank {
 			case 4:
 			{
 				System.out.println("Thank you for your business.");
-				TimeUnit.SECONDS.sleep(2);
+				try {
+					TimeUnit.SECONDS.sleep(2);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				System.out.println("Goodbye.");
 				System.exit(0);
 			}
@@ -234,7 +243,7 @@ public class Bank {
 	
 	
 	
-	public static void main(String[] args) throws InterruptedException 
+	public static void main(String[] args) 
 	{
 		getDetails();
 		i.close();		
