@@ -1,3 +1,6 @@
+/*
+ * Purpose: Create an account class that stores info of the bank account and customer info.
+ */
 package bank;
 import java.text.NumberFormat;
 

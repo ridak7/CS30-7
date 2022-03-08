@@ -1,3 +1,6 @@
+/*
+ * Purpose: Test the functions of the customer, account, personal account and business account classes.
+ */
 package bank;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -258,7 +261,7 @@ public class Bank {
 	
 	public static void main(String[] args) throws InterruptedException 
 	{
-		getDetails();
+		getDetails();	//run the first method 
 		i.close();		
 	}
 

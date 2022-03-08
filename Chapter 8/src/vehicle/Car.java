@@ -3,8 +3,13 @@ package vehicle;
 public class Car extends Vehicle
 {
 
-	/*
+	/**
 	 * Create a Car object
+	 * 
+	 * @param fECity
+	 * @param fEHwy
+	 * @param seating
+	 * @param cargo
 	 */
 	public Car(int fECity, int fEHwy, int seating, double cargo) 
 	{
@@ -12,6 +17,9 @@ public class Car extends Vehicle
 	}
 	
 
+	/*
+	 * Create a string for the cargo 
+	 */
 	@Override
 	String cargoContainer() 
 	{
@@ -19,6 +27,9 @@ public class Car extends Vehicle
 		return (cargoString);
 	}
 
+	/*
+	 * Create a string for the description of the vehicle
+	 */
 	@Override
 	String description() 
 	{
@@ -26,6 +37,9 @@ public class Car extends Vehicle
 		return carDesc;
 	}
 	
+	/*
+	 * Return a string detailing all the info of the vehicle
+	 */
 	public String toString()
 	{
 		String carString;

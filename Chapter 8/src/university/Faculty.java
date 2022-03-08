@@ -8,6 +8,4 @@ public class Faculty extends UEmployee
 	{
 		return departmentName;
 	}
-
-
 }

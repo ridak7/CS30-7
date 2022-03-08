@@ -2,12 +2,23 @@ package vehicle;
 
 public class Minivan extends Vehicle{
 	
-		
+	/**
+	 * Create a minivan object
+	 * 
+	 * @param fECity
+	 * @param fEHwy
+	 * @param seating
+	 * @param cargo
+	 */
 	public Minivan(int fECity, int fEHwy, int seating, double cargo) 
 	{
 		super(fECity, fEHwy, seating, cargo);
 	}
-		
+	
+	
+	/*
+	 * Create a string for the cargo 
+	 */
 	@Override
 	String cargoContainer() 
 	{
@@ -15,6 +26,10 @@ public class Minivan extends Vehicle{
 		return (cargoString);
 	}
 	
+	
+	/*
+	 * Create a string for the description of the vehicle
+	 */
 	@Override
 	String description() 
 	{
@@ -22,6 +37,10 @@ public class Minivan extends Vehicle{
 		return carDesc;
 	}
 	
+	
+	/*
+	 * Return a string detailing all the info of the vehicle
+	 */
 	public String toString()
 	{
 		String vanString;
