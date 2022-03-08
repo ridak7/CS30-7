@@ -1,0 +1,21 @@
+package vehicle;
+
+public class Truck extends Vehicle{
+
+	public Truck() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	String cargoContainer() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	String description() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

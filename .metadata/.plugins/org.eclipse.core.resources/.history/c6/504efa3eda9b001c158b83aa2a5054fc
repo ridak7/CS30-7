@@ -1,0 +1,9 @@
+package vehicle;
+
+public class Minivan extends Vehicle() {
+
+	public Minivan() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,9 +1,0 @@
-
-public class BusinessAcct extends Account
-{
-
-	public BusinessAcct() {
-		
-	}
-
-}
