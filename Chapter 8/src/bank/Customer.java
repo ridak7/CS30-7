@@ -1,3 +1,6 @@
+/*
+ * Purpose: Create a new Customer class that returns the name and address of the customer. 
+ */
 package bank;
 
 public class Customer {

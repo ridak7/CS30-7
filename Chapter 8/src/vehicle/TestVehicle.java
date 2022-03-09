@@ -1,3 +1,6 @@
+/*
+ * Purpose: create a new TestVehicle application to display info for different types of vehicles
+ */
 package vehicle;
 
 import java.util.Scanner;

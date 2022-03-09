@@ -1,22 +1,14 @@
-/*
- * Purpose: Create a Hockey application to test the puck class.
- */
 package hockey;
 
 public class Hockey {
 
-	/*
-	 * Declare variables
-	 */
-	static Puck ice = new Puck(4.3);
-	static Puck puck1 = new Puck(5.3);
-	static Puck puck2 = new Puck(3.8);
 	
-	/*
-	 * Return the puck weight, division and determine whether the puck objects are equal using radius and weight
-	 */
+
 	public static void main(String[] args) 
 	{
+		Puck ice = new Puck(4.3);
+		Puck puck1 = new Puck(5.3);
+		Puck puck2 = new Puck(3.8);
 		
 		System.out.println("Puck weight: " + ice.getWeight());
 		System.out.println("Puck Division: " + ice.getDivision());
@@ -49,3 +41,15 @@ public class Hockey {
 	}
 
 }
+
+/*
+Output:
+
+Puck weight: 4.3
+Puck Division: a youth division puck
+The objects are not equal
+puck 1 is heavier than puck 2
+The puck has a weight of 5.3 and therefore, is a standard division puck.
+The puck has a weight of 3.8 and therefore, is not a youth puck or a standard puck.
+
+*/

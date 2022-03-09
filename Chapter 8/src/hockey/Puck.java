@@ -1,8 +1,13 @@
+/*
+ * Purpose: create a new Puck class that is defined by its weight and its division.
+ */
 package hockey;
 
 public class Puck extends Disk
 {
-
+	/*
+	 * Declare variables
+	 */
 	private double weight;
 	private boolean standard;
 	private boolean youth;
@@ -12,7 +17,10 @@ public class Puck extends Disk
 	private double minYouth = 4;
 	private double maxYouth = 4.5;
 	
-		
+	
+	/*
+	 * Create a new puck object
+	 */
 	public Puck(double w) 
 	{
 		super(w, 1.5);
@@ -28,13 +36,17 @@ public class Puck extends Disk
 		}
 	}
 	
-	
+	/*
+	 * Return the weight of the puck
+	 */
 	public double getWeight()
 	{
 		return weight;
 	}
 	
-	
+	/*
+	 * Return the division that the puck is in
+	 */
 	public String getDivision()
 	{
 		if (standard == true)
@@ -52,8 +64,9 @@ public class Puck extends Disk
 			
 	}
 
-	
-	
+	/*
+	 * Check whether another puck object is equal to the puck object
+	 */
 	public boolean equals(Object obj) {
 		Puck testObj = (Puck)obj;
 		
@@ -65,8 +78,9 @@ public class Puck extends Disk
 		}
 	}
 	
-	
-	
+	/*
+	 * Return the info of the puck as a string
+	 */
 	public String toString()
 	{
 		String puckString;
@@ -76,6 +90,9 @@ public class Puck extends Disk
 		return puckString;
 	}
 	
+	/*
+	 * Compare the weight of one puck object to another
+	 */
 	public int compareTo(Object p)
 	{
 		Puck testPuck = (Puck)p;

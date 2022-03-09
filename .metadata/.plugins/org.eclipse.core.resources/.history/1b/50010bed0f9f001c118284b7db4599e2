@@ -1,6 +1,3 @@
-/*
- * Purpose: Test the functions of the customer, account, personal account and business account classes.
- */
 package bank;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -65,7 +62,7 @@ public class Bank {
 	 */
 	public static void getOgBalance() throws InterruptedException
 	{
-		System.out.print("\n" + "Enter the balance of the account: $");
+		System.out.print("\n" + "Enter the balance of the account: ");
 		bal = i.nextDouble();
 		
 		if(accType.equals("personal"))		//if it is a personal account and the balance is < 100, re-enter valid balance but otherwise run next method
@@ -138,7 +135,7 @@ public class Bank {
 		{
 			case 1:		//deposit
 				
-				System.out.print("Enter amount to deposit: $");
+				System.out.print("Enter amount to deposit: ");
 				depAmount = i.nextDouble(); 
 				acc.deposit(depAmount);
 				bal = acc.getBalance();
@@ -147,7 +144,7 @@ public class Bank {
 				
 			case 2:		//withdrawal
 			{
-				System.out.print("Enter amount to withdraw: $");
+				System.out.print("Enter amount to withdraw: ");
 				withdrawAmount = i.nextDouble();
 				
 				if(accType.equals("personal"))		//personal account

@@ -1,17 +1,9 @@
-/*
- * Purpose: create a new minivan class that is defined by city fuel economy, highway fuel economy, seating, and cargo space.
- */
 package vehicle;
 
 public class Minivan extends Vehicle{
 	
-	/**
-	 * Create a minivan object
-	 * 
-	 * @param fECity
-	 * @param fEHwy
-	 * @param seating
-	 * @param cargo
+	/*
+	 * Create a Minivan object
 	 */
 	public Minivan(int fECity, int fEHwy, int seating, double cargo) 
 	{
@@ -42,7 +34,7 @@ public class Minivan extends Vehicle{
 	
 	
 	/*
-	 * Return a string detailing all the info of the vehicle
+	 * return a string detailing all the info of the vehicle
 	 */
 	public String toString()
 	{
