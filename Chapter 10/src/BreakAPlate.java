@@ -2,7 +2,7 @@
  * Create an application that displays three unbroken plates, and when the game is started, 
  * displays broken plates and a prize corresponding to the number of plates broken.  
  */
-
+													Header?
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
